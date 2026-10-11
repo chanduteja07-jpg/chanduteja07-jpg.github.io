@@ -6,7 +6,7 @@
 <meta property="og:url" content="https://chanduteja07-jpg.github.io/"><meta property="og:image" content="https://chanduteja07-jpg.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://chanduteja07-jpg.github.io/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305070D'/%3E%3Cpath d='M8 50 26 20l8 12 6-8 16 26Z' fill='%23E9EEF6'/%3E%3Ccircle cx='46' cy='16' r='5' fill='%23FFB340'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <style>[hidden]{display:none!important}
 /* Layout: a night-to-dawn climb. A fixed 3D mountain behind everything; Apple-style chapters scroll over it.
    Single dark look by design (the sky is the page), so colors are set once on :root. */
@@ -21,8 +21,8 @@
   --line:rgba(255,255,255,.10);
   --dawn:#FFB340;
   --teal:#64D2FF; --violet:#BF5AF2; --green:#30D158; --orange:#FF9F0A; --pink:#FF375F; --blue:#0A84FF; --cyan:#40C8E0; --yellow:#FFD60A; --red:#FF6961;
-  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;
-  --mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Geist","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono",ui-monospace,"Geist Mono",Menlo,Consolas,monospace;
   --r:28px;
 }
 *{box-sizing:border-box}
@@ -180,7 +180,7 @@ html.js-anim .strike::after{transform:scaleX(var(--s,0))}
 .hu .wrap{width:100%}
 .hu-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:40px;align-items:center;margin-top:30px}
 .hu-steps{display:grid;gap:10px}
-.hu-step{padding:14px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(22,22,26,.55);color:var(--ink-3);transition:all .35s}
+.hu-step{padding:14px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(22,22,26,.55);color:var(--ink-3);transition:color .35s,border-color .35s,background-color .35s}
 .hu-step b{display:block;color:inherit;font-size:16px}
 .hu-step span{font-size:14px}
 .hu-step.on{color:var(--ink);border-color:rgba(100,210,255,.5);background:rgba(100,210,255,.08)}
@@ -188,7 +188,7 @@ html.js-anim .strike::after{transform:scaleX(var(--s,0))}
 .hu-device{position:relative;border-radius:var(--r);background:var(--tile-solid);border:1px solid var(--line);padding:22px;min-width:0}
 .hu-device canvas{display:block;width:100%;height:260px}
 .hu-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-top:10px}
-.hu-badge{position:absolute;top:18px;right:18px;font-size:13px;font-weight:600;padding:6px 12px;border-radius:980px;background:rgba(48,209,88,.16);color:var(--green);opacity:0;transform:translateY(-6px);transition:all .3s}
+.hu-badge{position:absolute;top:18px;right:18px;font-size:13px;font-weight:600;padding:6px 12px;border-radius:980px;background:rgba(48,209,88,.16);color:var(--green);opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s}
 .hu-badge.on{opacity:1;transform:none}
 .hu-actions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
 .pill{display:inline-flex;align-items:center;gap:8px;border-radius:980px;padding:10px 18px;font-size:15px;font-weight:500;border:0;cursor:pointer;background:var(--blue);color:#fff}
@@ -308,6 +308,118 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
 .sh-btn:hover{background:rgba(255,255,255,.09)}
 @media (max-width:560px){.sh-nav{grid-template-columns:1fr}.sh-btn.r{text-align:left;align-items:flex-start}}
 
+/* ---- v3 refinements (taste + web interface guidelines) ---- */
+html{-webkit-tap-highlight-color:transparent}
+a,button,.tile{touch-action:manipulation}
+section[id]{scroll-margin-top:60px}
+.skip{position:fixed;left:16px;top:-60px;z-index:60;background:var(--ink);color:#0B0D14;padding:10px 16px;border-radius:12px;font-weight:600}
+.skip:focus{top:12px;text-decoration:none}
+.h-hero{font-size:clamp(40px,5.6vw,74px);font-weight:700;line-height:1.04;letter-spacing:-.035em;max-width:none}
+.hero h1{max-width:20ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-ctas .pill{padding:12px 22px;font-size:17px}
+.pill{transition:transform .15s,filter .2s}
+.pill:active{transform:scale(.97)}
+.tile{cursor:default}
+.tile-hit{position:absolute;inset:0;z-index:3;width:100%;height:100%;border:0;margin:0;padding:0;background:transparent;border-radius:inherit;cursor:pointer}
+.tile-hit:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.tile:active{transform:scale(.985)}
+.tile .glow{opacity:.1}
+.bx .glow{opacity:.09}
+/* Tiger: one tall feature + two stacked */
+.tiles-feature{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-auto-rows:minmax(300px,auto)}
+.tiles-feature .tile{min-height:0}
+.tiles-feature .tile:first-child{grid-row:span 2}
+.tiles-feature .tile:not(:first-child) .art{max-width:260px;margin-left:auto}
+/* Builds: one wide row on top, two below */
+#buildTiles{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}
+#buildTiles .tile{min-height:360px}
+#buildTiles .tile:first-child{grid-column:span 2;grid-row:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:32px;align-content:start}
+#buildTiles .tile:first-child .art{grid-column:2;grid-row:1 / span 5;margin:0;align-self:center}
+#buildTiles .tile:first-child .art{max-width:none}
+@media (max-width:760px){
+  .tiles-feature{grid-template-columns:1fr}
+  .tiles-feature .tile:first-child{grid-row:auto}
+  .tiles-feature .tile:not(:first-child) .art{max-width:none}
+  #buildTiles{grid-template-columns:1fr}
+  #buildTiles .tile:first-child{grid-column:auto;display:flex}
+}
+/* Lens: one object, three columns divided by hairlines */
+.lens{gap:0;border-radius:var(--r);background:var(--tile);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid var(--line);overflow:hidden}
+.lens .bx{background:transparent;border:0;border-radius:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.lens .bx + .bx{border-left:1px solid var(--line)}
+@media (max-width:820px){.lens .bx + .bx{border-left:0;border-top:1px solid var(--line)}}
+/* Life: asymmetric 4-col rhythm */
+.life{grid-template-columns:repeat(4,minmax(0,1fr))}
+.life .bx:nth-child(1),.life .bx:nth-child(6){grid-column:span 2}
+@media (max-width:820px){.life{grid-template-columns:repeat(2,minmax(0,1fr))}.life .bx:nth-child(1),.life .bx:nth-child(6){grid-column:span 2}}
+@media (max-width:520px){.life{grid-template-columns:1fr}.life .bx:nth-child(1),.life .bx:nth-child(6){grid-column:auto}}
+.hero .wrap{position:relative}
+.hero .wrap::before{content:"";position:absolute;left:-14%;top:-10%;width:80%;height:120%;background:radial-gradient(closest-side,rgba(4,5,10,.55),transparent);z-index:-1;pointer-events:none}
+.hero .sub{color:#D2D2D7}
+.hu-badge{top:-14px;right:20px;background:#0E2A17;border:1px solid rgba(48,209,88,.4)}
+
+/* ---- v4: trail bar with walking hiker, auto tour, credentials ---- */
+body{padding-bottom:0}
+footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+.trailbar{position:fixed;z-index:18;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(780px,calc(100% - 24px));
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px;padding:10px 12px 10px 18px;border-radius:22px;
+  background:rgba(8,9,14,.8);backdrop-filter:saturate(170%) blur(18px);-webkit-backdrop-filter:saturate(170%) blur(18px);border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.tb-alt{display:grid;line-height:1.15;min-width:92px}
+.tb-alt b{font-size:18px;font-weight:650;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.tb-alt span{font-size:11px;color:var(--dawn);font-weight:600;white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+.tb-track{position:relative;height:44px;min-width:0}
+.tb-track svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tb-flag{position:absolute;width:16px;height:22px;margin:-20px 0 0 -2px;z-index:1}
+.tb-flag i{position:absolute;left:1px;bottom:2px;width:1.5px;height:16px;background:rgba(255,255,255,.55)}
+.tb-flag i::after{content:"";position:absolute;left:1.5px;top:0;border-left:8px solid rgba(255,255,255,.55);border-top:4px solid transparent;border-bottom:4px solid transparent;transition:border-left-color .2s}
+.tb-flag:hover i::after,.tb-flag:focus-visible i::after{border-left-color:var(--dawn)}
+.tb-flag span{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);white-space:nowrap;font-size:12px;font-weight:500;color:var(--ink);background:rgba(8,9,14,.92);border:1px solid var(--line);padding:5px 10px;border-radius:980px;opacity:0;pointer-events:none;transition:opacity .2s}
+.tb-flag:hover span,.tb-flag:focus-visible span{opacity:1}
+.tb-flag:hover{text-decoration:none}
+.hiker{position:absolute;width:26px;height:36px;margin:-35px 0 0 -13px;z-index:2;pointer-events:none;filter:drop-shadow(0 0 6px rgba(255,179,64,.55));transition:left .12s linear,top .12s linear}
+.hiker svg{width:100%;height:100%;overflow:visible}
+.hiker.back svg{transform:scaleX(-1)}
+.hk-leg,.hk-arm{transform-box:view-box}
+.hk-leg{transform-origin:10px 16px}
+.hk-arm{transform-origin:10px 9.8px}
+.hk-bob{transform-box:view-box;transform-origin:10px 26px}
+.hiker.walking .hk-l1{animation:stride .5s ease-in-out infinite alternate}
+.hiker.walking .hk-l2{animation:stride .5s ease-in-out infinite alternate-reverse}
+.hiker.walking .hk-arm{animation:swing .5s ease-in-out infinite alternate}
+.hiker.walking .hk-bob{animation:bob .25s ease-in-out infinite alternate}
+@keyframes stride{from{transform:rotate(24deg)}to{transform:rotate(-24deg)}}
+@keyframes swing{from{transform:rotate(-16deg)}to{transform:rotate(14deg)}}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-1.2px)}}
+.tb-tour{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--ink);border-radius:980px;padding:8px 14px 8px 10px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background-color .2s,transform .15s}
+.tb-tour:hover{background:rgba(255,255,255,.14)}
+.tb-tour:active{transform:scale(.97)}
+.tb-ic{width:22px;height:22px;border-radius:50%;background:var(--blue);position:relative;flex:0 0 auto}
+.tb-ic::before{content:"";position:absolute;left:8px;top:6px;border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent}
+.tb-tour.on .tb-ic::before{left:7px;top:6px;width:2.5px;height:10px;border:0;background:#fff;box-shadow:5px 0 0 #fff}
+.tb-tour.paused .tb-ic{background:var(--dawn)}
+.tb-lbl{min-width:84px;text-align:left;font-variant-numeric:tabular-nums}
+@media (max-width:640px){
+  .trailbar{gap:10px;padding:8px 8px 8px 12px;border-radius:18px}
+  .tb-alt{min-width:64px}.tb-alt b{font-size:14px}.tb-alt span{display:none}
+  .tb-lbl{display:none}.tb-tour{padding:6px}
+  .tb-flag span{display:none}
+}
+/* old indicators are retired */
+.hud,.trail-map{display:none!important}
+.bx.w6{grid-column:span 6}
+/* credentials: a row of medallions, not cards */
+.medals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.medal{display:flex;flex-direction:column;gap:14px;min-width:0}
+.medal svg{width:84px;height:84px}
+.medal h4{font-size:19px;font-weight:650;letter-spacing:-.01em;line-height:1.2}
+.medal .by{color:var(--acc);font-size:14px;font-weight:600;margin-top:4px}
+.medal p{font-size:14.5px;color:var(--ink-2)}
+@media (max-width:820px){.medals{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.medals{grid-template-columns:1fr}.medal{flex-direction:row;align-items:center}.medal svg{width:64px;height:64px;flex:0 0 auto}}
+@media (prefers-reduced-motion:reduce){.hiker{transition:none}}
+.medal h4,.medal p{text-shadow:0 1px 12px rgba(0,0,0,.75)}
+
 </style>
 </head><body><canvas id="stage" aria-hidden="true"></canvas>
 <div class="stage-fallback" id="fallback" hidden>
@@ -333,36 +445,47 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
   </div>
 </nav>
 
-<div class="hud" aria-hidden="true">
-  <span class="camp" id="hudCamp">Base Camp</span>
-  <b id="hudAlt">5,364 m</b>
-  <span>Scroll to climb</span>
-</div>
-<div class="trail-map" id="trailMap">
-  <svg viewBox="0 0 44 280" aria-hidden="true">
-    <path id="tmPath" d="M22,270 C6,240 38,220 22,190 C8,165 36,140 22,112 C10,88 34,62 22,10" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-    <path id="tmDone" d="M22,270 C6,240 38,220 22,190 C8,165 36,140 22,112 C10,88 34,62 22,10" fill="none" stroke="#FFB340" stroke-width="2" stroke-linecap="round"/>
-    <circle id="tmDot" r="5" cx="22" cy="270" fill="#FFB340"/>
-  </svg>
+<div class="trailbar" id="trailBar">
+  <div class="tb-alt" aria-hidden="true"><b id="hudAlt">5,364 m</b><span id="hudCamp">Base Camp</span></div>
+  <div class="tb-track" id="tbTrack">
+    <svg viewBox="0 0 400 44" preserveAspectRatio="none" aria-hidden="true">
+      <path id="tmPath" d="M4,40 L40,34 L62,37 L96,27 L120,31 L160,21 L190,25 L232,15 L262,19 L300,10 L330,13 L366,7 L396,4" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="2" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+      <defs><clipPath id="tbClip"><rect id="tbClipRect" x="0" y="0" width="0" height="44"/></clipPath></defs>
+      <path id="tmDone" clip-path="url(#tbClip)" d="M4,40 L40,34 L62,37 L96,27 L120,31 L160,21 L190,25 L232,15 L262,19 L300,10 L330,13 L366,7 L396,4" fill="none" stroke="#FFB340" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="hiker" id="hiker" aria-hidden="true">
+      <svg viewBox="0 0 20 28">
+        <g class="hk-bob">
+          <rect x="4.6" y="8" width="4.2" height="7.5" rx="1.6" fill="#FFB340"/>
+          <line class="hk-leg hk-l1" x1="10" y1="16" x2="9" y2="25.5" stroke="#E9EEF6" stroke-width="2.4" stroke-linecap="round"/>
+          <line class="hk-leg hk-l2" x1="10" y1="16" x2="11" y2="25.5" stroke="#C9D1DE" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="10" y1="8.5" x2="10" y2="16" stroke="#F5F5F7" stroke-width="2.8" stroke-linecap="round"/>
+          <g class="hk-arm"><line x1="10" y1="9.8" x2="13.4" y2="14" stroke="#F5F5F7" stroke-width="2" stroke-linecap="round"/><line x1="13.4" y1="13" x2="15.6" y2="26" stroke="#FFB340" stroke-width="1.2" stroke-linecap="round"/></g>
+          <circle cx="10.4" cy="4.6" r="3.1" fill="#F5F5F7"/>
+          <path d="M7.2,4 C7.6,1.2 13,1 13.6,4 Z" fill="#FFB340"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <button class="tb-tour" id="tourBtn" type="button" aria-pressed="false" aria-label="Start auto tour"><span class="tb-ic" aria-hidden="true"></span><span class="tb-lbl" id="tourLabel">Auto tour</span></button>
 </div>
 
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
   <!-- HERO -->
   <section class="sec hero" id="hello" data-camp="0" data-alt="5364" data-name="Base Camp">
     <div class="wrap">
       <p class="who shadow rv">Chandra Gompa <span>· UNC Kenan-Flagler, Class of 2027</span></p>
-      <h1 class="h-xl shadow rv">Second-year MBA, interested in <span class="grad-text">product and strategy.</span></h1>
-      <p class="sub shadow rv">Engineer by training. Six years building and shipping products across software, AI, ads and semiconductors.</p>
-      <div class="hero-chips rv"><span class="chip"><i></i>Open to product and strategy roles from June 2027</span><span class="chip ghost">Chapel Hill, NC</span></div>
-      <div class="cue rv"><i></i>Scroll to climb</div>
+      <h1 class="h-hero shadow rv">Second-year MBA, interested in <span class="grad-text">product and strategy.</span></h1>
+      <p class="sub shadow rv">Engineer by training. Six years shipping products in software, AI, ads and semiconductors. Open to roles from June 2027.</p>
+      <div class="hero-ctas rv"><a class="pill" href="#ti">See my work</a><a class="pill ghost" href="#contact">Say hello</a></div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section class="sec about" id="about" data-camp="0.1" data-alt="5800" data-name="Base Camp">
     <div class="wrap">
-      <p class="eyebrow rv">A bit about me</p>
-      <p class="reveal-text shadow" id="revealText">I studied electrical engineering, then spent two years writing code. Since then I've worked in product at Amazon, Tiger Analytics and Texas Instruments. I'm drawn to problems where the data is scattered and good people are stuck doing work by hand. I'm still learning to say no to good ideas.</p>
+            <p class="reveal-text shadow" id="revealText">I studied electrical engineering, then spent two years writing code. Since then I've worked in product at Amazon, Tiger Analytics and Texas Instruments. I'm drawn to problems where the data is scattered and good people are stuck doing work by hand. I'm still learning to say no to good ideas.</p>
       <div class="stats">
         <div class="stat rv"><div class="n" data-count="6">6</div><div class="d">years in tech</div></div>
         <div class="stat rv"><div class="n" data-count="4">4</div><div class="d">companies, 3 industries</div></div>
@@ -375,9 +498,8 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
   <!-- CAMP I : TI -->
   <section class="sec chapter" id="ti" data-camp="0.22" data-alt="6100" data-name="Camp I · Now">
     <div class="wrap">
-      <p class="camp-tag rv">Camp I · Summer 2026</p>
-      <h2 class="h-xl shadow rv">Texas Instruments</h2>
-      <p class="role shadow rv"><b>PM Intern.</b> Ten weeks, five projects. Each one started with someone doing a task by hand.</p>
+            <h2 class="h-xl shadow rv">Texas Instruments</h2>
+      <p class="role shadow rv"><b>PM Intern, summer 2026.</b> Ten weeks, five projects. Each one started with someone doing a task by hand.</p>
     </div>
   </section>
 
@@ -397,19 +519,16 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
   <!-- CAMP II : MBA -->
   <section class="sec chapter" id="mba" data-camp="0.44" data-alt="6800" data-name="Camp II · MBA">
     <div class="wrap">
-      <p class="camp-tag rv">Camp II · 2025 to 2027</p>
-      <h2 class="h-xl shadow rv">Kenan-Flagler MBA</h2>
-      <p class="role shadow rv"><b>Two years</b> of learning to decide what to build, and why, not just how.</p>
+            <h2 class="h-xl shadow rv">Kenan-Flagler MBA</h2>
+      <p class="role shadow rv"><b>Class of 2027.</b> Two years of learning to decide what to build, and why.</p>
     </div>
   </section>
 
   <section class="sec" style="padding-top:0" data-camp="0.5" data-alt="7000" data-name="Camp II · MBA">
     <div class="wrap">
-      <p class="eyebrow rv">In the classroom</p>
-      <h3 class="h-m shadow rv">Technology, strategy, operations and ventures.</h3>
+            <h3 class="h-m shadow rv">Technology, strategy, operations and ventures.</h3>
       <div class="bento" id="mbaBento"></div>
-      <p class="eyebrow rv" style="margin-top:80px">Outside it</p>
-      <h3 class="h-m shadow rv">Clubs I help run.</h3>
+      <h3 class="h-m shadow rv" style="margin-top:96px">Clubs I help run.</h3>
       <div class="bento" id="clubBento"></div>
     </div>
   </section>
@@ -417,21 +536,19 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
   <!-- CAMP III : TIGER -->
   <section class="sec chapter" id="tiger" data-camp="0.58" data-alt="7300" data-name="Camp III · Tiger">
     <div class="wrap">
-      <p class="camp-tag rv">Camp III · 2024 to 2025</p>
-      <h2 class="h-xl shadow rv">Tiger Analytics</h2>
-      <p class="role shadow rv"><b>AI and data products</b> for Fortune 100 clients. A 15-person squad, one roadmap.</p>
+            <h2 class="h-xl shadow rv">Tiger Analytics</h2>
+      <p class="role shadow rv"><b>2024 to 2025.</b> AI and data products for Fortune 100 clients, with a 15-person squad.</p>
     </div>
   </section>
   <section class="sec" style="padding-top:0" data-camp="0.64" data-alt="7500" data-name="Camp III · Tiger">
-    <div class="wrap"><div class="tiles" id="tigerTiles"></div></div>
+    <div class="wrap"><div class="tiles tiles-feature" id="tigerTiles"></div></div>
   </section>
 
   <!-- CAMP IV : ROOTS -->
   <section class="sec chapter" id="roots" data-camp="0.7" data-alt="7800" data-name="Camp IV · Roots">
     <div class="wrap">
-      <p class="camp-tag rv">Camp IV · 2020 to 2024</p>
-      <h2 class="h-xl shadow rv">Amazon and Cognizant</h2>
-      <p class="role shadow rv"><b>Where I learned the basics:</b> write it down, measure it, and fix the root cause.</p>
+            <h2 class="h-xl shadow rv">Amazon and Cognizant</h2>
+      <p class="role shadow rv"><b>2020 to 2024.</b> Where I learned the basics: write it down, measure it, fix the root cause.</p>
     </div>
   </section>
   <section class="sec" style="padding-top:0" data-camp="0.74" data-alt="7900" data-name="Camp IV · Roots">
@@ -441,8 +558,7 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
   <!-- BUILDS -->
   <section class="sec chapter" id="builds" data-camp="0.8" data-alt="8100" data-name="Side Trail · Builds">
     <div class="wrap">
-      <p class="camp-tag rv">Side trail · Things I build</p>
-      <h2 class="h-xl shadow rv">Ideas I test on my own time.</h2>
+            <h2 class="h-xl shadow rv">Ideas I test on my own time.</h2>
     </div>
   </section>
 
@@ -453,10 +569,10 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
       <h3 class="h-l shadow" style="font-size:clamp(34px,4.4vw,52px)">Hear your name through the music.</h3>
       <p class="sub shadow" style="font-size:19px;margin-bottom:22px">With earbuds in, you miss the moment someone calls you. Heads Up listens for your name, on the phone, and breaks through. Keep scrolling to watch it work.</p>
       <div class="hu-steps" id="huSteps">
-          <div class="hu-step on"><b>1 · Music playing</b><span>The phone keeps the last 2 seconds of audio in memory. Nothing is stored.</span></div>
-          <div class="hu-step"><b>2 · Someone calls "Chandra!"</b><span>A cheap volume trigger notices the spike.</span></div>
-          <div class="hu-step"><b>3 · Name detected</b><span>An on-device wake-word model checks the buffer for your name.</span></div>
-          <div class="hu-step"><b>4 · Music ducks, chime plays</b><span>Under a second from voice to alert.</span></div>
+          <div class="hu-step on"><b>Music playing</b><span>The phone keeps the last 2 seconds of audio in memory. Nothing is stored.</span></div>
+          <div class="hu-step"><b>Someone calls “Chandra!”</b><span>A cheap volume trigger notices the spike.</span></div>
+          <div class="hu-step"><b>Name detected</b><span>An on-device wake-word model checks the buffer for your name.</span></div>
+          <div class="hu-step"><b>Music ducks, chime plays</b><span>Under a second from voice to alert.</span></div>
         </div></div>
         <div class="hu-device">
           <span class="hu-badge" id="huBadge">Name detected · 0.4 s</span>
@@ -475,18 +591,24 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
   <!-- LENS -->
   <section class="sec" id="lens" data-camp="0.91" data-alt="8550" data-name="Side Trail · Lens">
     <div class="wrap">
-      <p class="eyebrow rv">How I look at products</p>
-      <h3 class="h-l shadow rv">Hardware, software, AI. I take all three apart.</h3>
+            <h3 class="h-l shadow rv">Hardware, software, AI. I take all three apart.</h3>
       <p class="sub shadow rv">I review products for fun: a gadget, an app's onboarding, a pricing page, a new model release. Then I ask what I'd change.</p>
       <div class="lens" id="lensBoxes"></div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="sec" id="creds" data-camp="0.93" data-alt="8620" data-name="Credentials">
+    <div class="wrap">
+      <h3 class="h-l shadow rv">Credentials.</h3>
+      <div class="medals" id="medalRow"></div>
     </div>
   </section>
 
   <!-- LIFE -->
   <section class="sec" id="life" data-camp="0.95" data-alt="8700" data-name="Off the Trail">
     <div class="wrap">
-      <p class="eyebrow rv">Off the trail</p>
-      <h3 class="h-l shadow rv">The person behind the roadmap.</h3>
+            <h3 class="h-l shadow rv">The person behind the roadmap.</h3>
       <div class="life" id="lifeBoxes"></div>
     </div>
   </section>
@@ -494,15 +616,14 @@ footer{text-shadow:0 1px 8px rgba(0,0,0,.8);color:#C7C7CC}
   <!-- SUMMIT -->
   <section class="sec summit" id="contact" data-camp="1" data-alt="8849" data-name="Summit">
     <div class="wrap">
-      <p class="camp-tag rv" style="justify-content:center">Summit · 8,849 m</p>
-      <h2 class="h-xl shadow rv">Let's build <span class="grad-text">what's next.</span></h2>
+            <h2 class="h-xl shadow rv">Let's build <span style="color:var(--dawn)">what's next.</span></h2>
       <p class="sub shadow rv" style="margin-inline:auto">Looking for product and strategy roles starting June 2027.</p>
       <div class="cc-row rv">
         <a class="cc" href="mailto:chandra_gompa@kenan-flagler.unc.edu"><span class="cc-k">Email</span><span class="cc-v" id="email">chandra_gompa@kenan-flagler.unc.edu</span></a>
         <a class="cc" href="tel:+19842914590"><span class="cc-k">Phone</span><span class="cc-v" id="phone">(984) 291-4590</span></a>
         <a class="cc" href="https://www.linkedin.com/in/chandrasriteja" target="_blank" rel="noopener"><span class="cc-k">LinkedIn</span><span class="cc-v">in/chandrasriteja</span></a>
       </div>
-      <div class="contact-row rv">
+      <div class="contact-row rv" aria-live="polite">
         <button class="pill" type="button" data-copy="email">Copy email</button>
         <button class="pill ghost" type="button" data-copy="phone">Copy phone</button>
       </div>
@@ -586,7 +707,7 @@ var ART = (function(){
     '<rect x="240" y="40" width="130" height="180" rx="12" fill="#26262c" stroke="'+D+'"/><text x="256" y="72" '+mono+' font-size="14" fill="'+A+'">&lt;/&gt;</text>'+
     '<g fill="'+D+'"><rect x="256" y="88" width="90" height="7" rx="3"/><rect x="268" y="104" width="74" height="7" rx="3"/><rect x="268" y="120" width="60" height="7" rx="3"/><rect x="256" y="136" width="84" height="7" rx="3"/><rect x="268" y="152" width="70" height="7" rx="3"/></g>');};
   a.headsup=function(){var p='M30,130';for(var x=30;x<=370;x+=6){var amp=(x>190&&x<240)?60:14;p+=' L'+x+','+(130+Math.sin(x*.18)*amp*Math.sin(x*.03+1)).toFixed(1);}
-    return svg('<path d="'+p+'" fill="none" stroke="'+A+'" stroke-width="3" stroke-linejoin="round"/><rect x="186" y="52" width="58" height="156" rx="10" fill="'+A+'" opacity=".1" stroke="'+A+'" stroke-dasharray="4 4"/><text x="215" y="44" text-anchor="middle" font-size="14" font-weight="700" fill="'+W+'">"Chandra!"</text><text x="215" y="232" text-anchor="middle" '+mono+' font-size="11" fill="'+M+'">2 s buffer</text>');};
+    return svg('<path d="'+p+'" fill="none" stroke="'+A+'" stroke-width="3" stroke-linejoin="round"/><rect x="186" y="52" width="58" height="156" rx="10" fill="'+A+'" opacity=".1" stroke="'+A+'" stroke-dasharray="4 4"/><text x="215" y="44" text-anchor="middle" font-size="14" font-weight="700" fill="'+W+'">“Chandra!”</text><text x="215" y="232" text-anchor="middle" '+mono+' font-size="11" fill="'+M+'">2 s buffer</text>');};
   a.bingo=function(){var s='',on=[0,4,5,8];for(var i=0;i<9;i++){var x=110+(i%3)*62,y=36+Math.floor(i/3)*62;s+='<rect x="'+x+'" y="'+y+'" width="54" height="54" rx="10" fill="'+(on.indexOf(i)>-1?A:F)+'" stroke="'+D+'"/>';}
     return svg(s+'<g class="a-float"><circle cx="330" cy="70" r="30" fill="#fff"/><path d="M330,56 L343,65 L338,80 L322,80 L317,65 Z" fill="#111"/></g><line x1="138" y1="64" x2="262" y2="188" stroke="#000" stroke-width="5" stroke-linecap="round" opacity=".6"/>');};
   a.bench=function(){var v=[[.9,.1,.05],[.12,.82,.1],[.04,.15,.88]],s='';for(var r=0;r<3;r++)for(var c=0;c<3;c++){s+='<rect x="'+(120+c*56)+'" y="'+(40+r*56)+'" width="52" height="52" rx="8" fill="'+A+'" opacity="'+(.08+v[r][c]*.9).toFixed(2)+'"/><text x="'+(146+c*56)+'" y="'+(71+r*56)+'" text-anchor="middle" '+mono+' font-size="12" fill="'+(v[r][c]>.5?'#000':M)+'">'+Math.round(v[r][c]*100)+'</text>';}
@@ -691,7 +812,7 @@ var DATA = {
      next:"This is why engineers trust my estimates: I've written the kind of code I ask for."}
   ],
   builds:[
-    {id:'hu',acc:'var(--teal)',kicker:'Concept · Mobile + on-device AI',title:'Heads Up',line:'An earbud alert when someone calls your name.',num:'<span>&lt; 1 s</span> voice to alert',art:'headsup',
+    {id:'hu',hideTile:true,acc:'var(--teal)',kicker:'Concept · Mobile + on-device AI',title:'Heads Up',line:'An earbud alert when someone calls your name.',num:'<span>&lt; 1 s</span> voice to alert',art:'headsup',
      nums:[['< 1 s','target, voice to alert'],['2 s','rolling audio buffer'],['0','audio stored or uploaded']],
      problem:"With music or noise cancelling on, you miss the moment someone calls you. Sometimes it's a coworker. Sometimes it's a warning. Transparency modes let everything in, which defeats the point of noise cancelling.",
      did:"I framed the idea as three buckets I could build and test separately: recognize the user's name, decide when to listen, and alert without being annoying. Interface comes last; it's the cheapest part to change.",
@@ -722,14 +843,18 @@ var DATA = {
     {acc:'var(--yellow)',icon:'bolt',k:'Energy & Operations',h:'Siting a 1 GW data center.',p:'Recommended Duke Energy Carolinas with a solar virtual PPA and battery storage. Structured a solar offtake deal.',w:''},
     {acc:'var(--green)',icon:'chart',k:'Ventures',h:'Reading startups like an investor.',p:'Evaluated early-stage companies such as Flexnode and Nimble.',w:''},
     {acc:'var(--pink)',icon:'nudge',k:'Behavior & Leadership',h:'Small nudges, big shifts.',p:'Designed nudges to move Blueland shoppers to refills. Wrote my own leadership action plan.',w:''},
-    {acc:'var(--violet)',icon:'spark',k:'AI & Analytics',h:'Evals before demos.',p:'Benchmarked Gemini on classifying Reddit finance posts.',w:'w3 full-m'},
-    {acc:'var(--blue)',icon:'star',k:'Recognition',h:'Forté Fellow, full tuition.',p:'GMAT 750, 99th percentile.',w:'w3 full-m'}
+    {acc:'var(--violet)',icon:'spark',k:'AI & Analytics',h:'Evals before demos.',p:'Benchmarked Gemini on classifying Reddit finance posts.',w:'w6 full-m'}
   ],
   clubs:[
     {acc:'var(--teal)',icon:'chip',k:'Business Technology Club',h:'VP, Learning & Development',p:'Rebuilt the career lab into three modules so first-years practice skills in the order recruiting tests them.',roles:[['VP, L&D','2026 to 2027'],['Liaison','2025 to 2026']],w:'w3'},
     {acc:'var(--violet)',icon:'spark',k:'AI Analytics Club',h:'VP, Outreach',p:'Bringing AI practitioners and companies to campus, and students to them.',roles:[['VP, Outreach','2026 to 2027']],w:'w3'},
-    {acc:'var(--pink)',icon:'mega',k:'Marketing Club',h:'Tech meets marketing',p:'Building a joint initiative between the Marketing Club and the tech clubs.',w:'w4 full-m'},
-    {acc:'var(--orange)',icon:'target',k:'Teaching',h:'Abacus, 500+ kids',p:'National gold medalist, then a math teacher for six years.',w:''}
+    {acc:'var(--pink)',icon:'mega',k:'Marketing Club',h:'Tech meets marketing',p:'Building a joint initiative between the Marketing Club and the tech clubs.',w:'w6 full-m'}
+  ],
+  creds:[
+    {acc:'var(--blue)',mark:'F',t:'Forté Fellow',by:'Forté Foundation',d:'Full tuition at UNC Kenan-Flagler'},
+    {acc:'var(--teal)',mark:'PM',t:'Product Manager Fellowship',by:'NextLeap',d:'Issued Jul 2024'},
+    {acc:'var(--orange)',mark:'T',t:'Tableau Desktop Specialist',by:'Tableau',d:'Issued Nov 2023'},
+    {acc:'var(--green)',mark:'750',t:'GMAT 750',by:'GMAC',d:'99th percentile'}
   ],
   lens:[
     {acc:'var(--orange)',art:'chip',k:'Hardware',h:'I trained on circuits.',p:'Electrical engineering degree, a summer on TI protection devices, and a habit of rebuilding classic CPUs to see how they work.'},
@@ -760,9 +885,10 @@ function smooth(a,b,v){var t=clamp((v-a)/(b-a),0,1);return t*t*(3-2*t);}
 var ALL={};
 function tile(d){
   ALL[d.id]=d;
-  return '<div class="tile rv" role="button" tabindex="0" data-open="'+d.id+'" style="--acc:'+d.acc+'" aria-label="'+d.title+': open details">'+
+  if(d.hideTile)return '';
+  return '<article class="tile rv" style="--acc:'+d.acc+'"><button type="button" class="tile-hit" data-open="'+d.id+'" aria-label="Open '+d.title+'"></button>'+
     '<span class="glow"></span><span class="kicker">'+d.kicker+'</span><h3>'+d.title+'</h3><p class="line">'+d.line+'</p>'+
-    '<div class="art">'+ART.art[d.art]()+'</div><span class="num">'+d.num+'</span><span class="more" aria-hidden="true">+</span></div>';
+    '<div class="art">'+ART.art[d.art]()+'</div><span class="num">'+d.num+'</span><span class="more" aria-hidden="true">+</span></article>';
 }
 function bx(d){
   return '<div class="bx rv '+(d.w||'')+'" style="--acc:'+d.acc+'"><span class="glow"></span>'+
@@ -774,7 +900,7 @@ function bx(d){
 $('#tiTrack').innerHTML=DATA.ti.map(tile).join('');
 $('#tigerTiles').innerHTML=DATA.tiger.map(tile).join('');
 $('#rootTiles').innerHTML=DATA.roots.map(tile).join('');
-$('#buildTiles').innerHTML=DATA.builds.map(tile).join('');
+$('#buildTiles').innerHTML=DATA.builds.map(tile).join('');ALL.hu=DATA.builds[0];
 $('#mbaBento').innerHTML=DATA.mba.map(bx).join('');
 $('#clubBento').innerHTML=DATA.clubs.map(bx).join('');
 $('#lensBoxes').innerHTML=DATA.lens.map(bx).join('');
@@ -803,12 +929,12 @@ function openSheet(id){
     '<div class="sh-sec next sr"><h4>What I\'d do next</h4><p>'+d.next+'</p></div>'+nextLink(id);
   sheet.hidden=false;sheet.scrollTop=0;
   if(!reduced){sheet.classList.add('anim');
-    if(io)io.disconnect();
-    io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{root:sheet,threshold:.12});
-    $$('.sr',sheet).forEach(function(el){io.observe(el);});}
+    revealSheet();}
   requestAnimationFrame(function(){requestAnimationFrame(function(){doc.classList.add('sheet-open');$('#sheetClose').focus({preventScroll:true});});});
   try{history.replaceState(null,'','#'+id);}catch(e){}
 }
+function revealSheet(){var lim=sheet.getBoundingClientRect().bottom-40;$$('.sr:not(.in)',sheet).forEach(function(el){if(el.getBoundingClientRect().top<lim)el.classList.add('in');});}
+sheet.addEventListener('scroll',function(){if(sheet.classList.contains('anim'))revealSheet();},{passive:true});
 function closeSheet(){
   if(sheet.hidden)return;
   doc.classList.remove('sheet-open');
@@ -819,8 +945,6 @@ function closeSheet(){
 document.addEventListener('click',function(e){var t=e.target.closest('[data-open]');if(t){openSheet(t.getAttribute('data-open'));}});
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape')closeSheet();
-  var t=e.target.closest&&e.target.closest('[data-open]');
-  if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openSheet(t.getAttribute('data-open'));}
 });
 $('#sheetClose').addEventListener('click',closeSheet);
 scrim.addEventListener('click',closeSheet);
@@ -834,17 +958,25 @@ $$('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
   try{navigator.clipboard.writeText(txt).then(done,fallback);}catch(e){fallback();}
 });});
 
-/* trail map camps: click to jump */
+/* trail bar camp flags: click to jump */
 (function(){
-  var tm=$('#trailMap'),path=$('#tmPath');if(!path.getPointAtLength)return;
+  var tr=$('#tbTrack'),path=$('#tmPath');if(!path.getPointAtLength)return;
   var L=path.getTotalLength();
-  [['hello','Base Camp · Hello'],['ti','Camp I · Texas Instruments'],['mba','Camp II · MBA'],['tiger','Camp III · Tiger Analytics'],['roots','Camp IV · Amazon & Cognizant'],['builds','Side trail · Builds'],['life','Off the trail'],['contact','Summit · Contact']].forEach(function(c){
+  [['hello','Base Camp'],['ti','Camp I · Texas Instruments'],['mba','Camp II · MBA'],['tiger','Camp III · Tiger Analytics'],['roots','Camp IV · Amazon & Cognizant'],['builds','Side trail · Builds'],['creds','Credentials'],['contact','Summit · Contact']].forEach(function(c){
     var sec=document.getElementById(c[0]);if(!sec)return;
-    var p=path.getPointAtLength(L*(+sec.getAttribute('data-camp'))),btn=document.createElement('a');
-    btn.className='tm-camp';btn.href='#'+c[0];btn.style.left=(p.x/44*100)+'%';btn.style.top=(p.y/280*100)+'%';
-    btn.innerHTML='<span>'+c[1]+'</span>';btn.setAttribute('aria-label','Jump to '+c[1]);tm.appendChild(btn);
+    var p=path.getPointAtLength(L*(+sec.getAttribute('data-camp'))),f=document.createElement('a');
+    f.className='tb-flag';f.href='#'+c[0];f.style.left=(p.x/400*100)+'%';f.style.top=(p.y/44*100)+'%';
+    f.innerHTML='<i></i><span>'+c[1]+'</span>';f.setAttribute('aria-label','Jump to '+c[1]);tr.appendChild(f);
   });
 })();
+
+/* credentials */
+$('#medalRow').innerHTML=DATA.creds.map(function(c){
+  var notches='';for(var i=0;i<24;i++){var t=i/24*Math.PI*2;notches+='<line x1="'+(40+Math.cos(t)*33).toFixed(1)+'" y1="'+(40+Math.sin(t)*33).toFixed(1)+'" x2="'+(40+Math.cos(t)*37).toFixed(1)+'" y2="'+(40+Math.sin(t)*37).toFixed(1)+'" stroke="var(--acc)" stroke-width="1.4" opacity=".7"/>';}
+  return '<div class="medal rv" style="--acc:'+c.acc+'"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="none" stroke="var(--acc)" stroke-width="1" opacity=".35"/>'+notches+
+    '<circle cx="40" cy="40" r="28" fill="color-mix(in srgb,var(--acc) 16%,#0B0D14)" stroke="var(--acc)" stroke-width="1.6"/><text x="40" y="'+(c.mark.length>2?45:47)+'" text-anchor="middle" font-size="'+(c.mark.length>2?15:c.mark.length>1?17:21)+'" font-weight="700" fill="#F5F5F7" font-family="-apple-system,BlinkMacSystemFont,Geist,sans-serif">'+c.mark+'</text></svg>'+
+    '<div><h4>'+c.t+'</h4><p class="by">'+c.by+'</p><p>'+c.d+'</p></div></div>';
+}).join('');
 
 /* ---------- scroll progress -> camp, altitude, nav ---------- */
 var anchors=[];
@@ -859,9 +991,8 @@ function measure(){
   });
 }
 var progress=0,altNow=5364,lastName='',lastNav='';
-var hudAlt=$('#hudAlt'),hudCamp=$('#hudCamp'),tmDone=$('#tmDone'),tmDot=$('#tmDot'),tmPath=$('#tmPath');
-var tmLen=tmPath.getTotalLength?tmPath.getTotalLength():300;
-tmDone.style.strokeDasharray=tmLen;tmDone.style.strokeDashoffset=tmLen;
+var hudAlt=$('#hudAlt'),hudCamp=$('#hudCamp'),tmPath=$('#tmPath'),clipR=$('#tbClipRect'),hiker=$('#hiker'),walkT=0;
+var tmLen=tmPath.getTotalLength?tmPath.getTotalLength():300,lastProg=-1;
 function onScroll(){
   if(!anchors.length)return;
   var y=window.scrollY+innerHeight*.45,i=0;
@@ -874,10 +1005,12 @@ function onScroll(){
   var nm=progress>=.999?'Summit':a.name;
   if(nm!==lastName){hudCamp.textContent=nm;lastName=nm;}
   if(a.nav!==lastNav){lastNav=a.nav;$$('.lnav [data-nav]').forEach(function(l){l.classList.toggle('on',l.getAttribute('data-nav')===a.nav);});}
-  tmDone.style.strokeDashoffset=tmLen*(1-progress);
-  if(tmPath.getPointAtLength){var p=tmPath.getPointAtLength(tmLen*progress);tmDot.setAttribute('cx',p.x);tmDot.setAttribute('cy',p.y);}
+  if(tmPath.getPointAtLength){var p=tmPath.getPointAtLength(tmLen*progress);clipR.setAttribute('width',p.x);
+    hiker.style.left=(p.x/400*100)+'%';hiker.style.top=(p.y/44*100)+'%';
+    if(lastProg>=0&&Math.abs(progress-lastProg)>1e-5){hiker.classList.add('walking');hiker.classList.toggle('back',progress<lastProg);clearTimeout(walkT);walkT=setTimeout(function(){hiker.classList.remove('walking');},260);}
+    lastProg=progress;}
 }
-window.addEventListener('scroll',onScroll,{passive:true});
+var scrollBound=false;function bindScroll(){if(scrollBound)return;scrollBound=true;window.addEventListener('scroll',onScroll,{passive:true});}
 window.addEventListener('resize',function(){measure();onScroll();});
 
 /* ---------- 3D mountain ---------- */
@@ -982,7 +1115,9 @@ var stage={ok:false};
     var beam=new T.Mesh(new T.CylinderGeometry(.06,.06,9,6,1,true),new T.MeshBasicMaterial({color:'#FFB340',transparent:true,opacity:.0,depthWrite:false,fog:false}));
     beam.position.y=5;grp.add(orb);grp.add(beam);scene.add(grp);camps.push({t:t,orb:orb,beam:beam});
   });
-  var climber=new T.Mesh(new T.SphereGeometry(.9,16,12),new T.MeshBasicMaterial({color:'#FFF3D6',fog:false}));scene.add(climber);
+  var climber=new T.Mesh(new T.SphereGeometry(1.1,16,12),new T.MeshBasicMaterial({color:'#FFF3D6',fog:false}));scene.add(climber);
+  var halo=new T.Sprite(new T.SpriteMaterial({map:new T.CanvasTexture(c2),transparent:true,depthWrite:false,depthTest:false,fog:false,opacity:.85}));halo.scale.set(9,9,1);scene.add(halo);
+  var pillar=new T.Mesh(new T.CylinderGeometry(.18,.18,16,8,1,true),new T.MeshBasicMaterial({color:'#FFD08A',transparent:true,opacity:.45,depthWrite:false,fog:false}));scene.add(pillar);
   var lamp=new T.PointLight('#FFB340',1.6,60,2);scene.add(lamp);
 
   /* palette over the climb */
@@ -1029,6 +1164,8 @@ var stage={ok:false};
     trail.geometry.setDrawRange(0,Math.floor(TS*t)*perSeg);
     climber.position.copy(curve.getPointAt(t));climber.position.y+=.6;
     lamp.position.copy(climber.position);lamp.position.y+=3;
+    halo.position.copy(climber.position);var pulse=1+Math.sin(now*.004)*.12;halo.scale.set(9*pulse,9*pulse,1);
+    pillar.position.copy(climber.position);pillar.position.y+=8;
     camps.forEach(function(c){var on=t>=c.t-.004;c.orb.material.color.set(on?'#FFB340':'#9AA3B5');c.beam.material.opacity=on?.28:0;c.orb.scale.setScalar(on?1.25:1);});
     renderer.render(scene,camera);
     if(!canvas.classList.contains('ready'))canvas.classList.add('ready');
@@ -1064,7 +1201,7 @@ var hu={p:0,auto:true};
     var bufCol=stage>=2?'rgba(48,209,88,':'rgba(100,210,255,';
     cx.fillStyle=bufCol+(stage>=1?'.12)':'.06)');cx.fillRect(bx0,8,bx1-bx0,Hh-16);
     cx.setLineDash([5,5]);cx.strokeStyle=bufCol+'.6)';cx.strokeRect(bx0,8,bx1-bx0,Hh-16);cx.setLineDash([]);
-    cx.font='600 11px -apple-system,BlinkMacSystemFont,Inter,sans-serif';cx.fillStyle=bufCol+'.9)';cx.fillText(stage>=2?'MATCH: "Chandra"':'LAST 2 S',bx0+8,24);
+    cx.font='600 11px -apple-system,BlinkMacSystemFont,Geist,sans-serif';cx.fillStyle=bufCol+'.9)';cx.fillText(stage>=2?'MATCH: “Chandra”':'LAST 2 S',bx0+8,24);
     /* music wave */
     var duck=stage>=3?.28:1;
     var ampM=Hh*.16;
@@ -1076,7 +1213,7 @@ var hu={p:0,auto:true};
     if(stage>=1){var c=(bx0+bx1)/2,wv=(bx1-bx0)*.36;cx.beginPath();
       for(var x2=c-wv*1.4;x2<=c+wv*1.4;x2+=1.5){var env=Math.exp(-Math.pow((x2-c)/wv,2)*2.2);var y2=mid+Math.sin(x2*.55+time*14)*Hh*.38*env*(.7+.3*Math.sin(x2*.13));x2===c-wv*1.4?cx.moveTo(x2,y2):cx.lineTo(x2,y2);}
       cx.strokeStyle=stage>=2?'#30D158':'#ffffff';cx.lineWidth=2;cx.stroke();
-      cx.fillStyle='#fff';cx.font='700 15px -apple-system,BlinkMacSystemFont,Inter,sans-serif';cx.textAlign='center';cx.fillText('"Chandra!"',c,Hh-16);cx.textAlign='left';}
+      cx.fillStyle='#fff';cx.font='700 15px -apple-system,BlinkMacSystemFont,Geist,sans-serif';cx.textAlign='center';cx.fillText('“Chandra!”',c,Hh-16);cx.textAlign='left';}
     /* chime rings */
     if(stage>=3){var rx=W*.94,ry=mid;for(var r=0;r<3;r++){var rr=((time*40+r*18)%54)+6;cx.beginPath();cx.arc(rx,ry,rr,0,Math.PI*2);cx.strokeStyle='rgba(255,179,64,'+(1-rr/60)+')';cx.lineWidth=2;cx.stroke();}
       cx.beginPath();cx.arc(rx,ry,6,0,Math.PI*2);cx.fillStyle='#FFB340';cx.fill();}
@@ -1086,18 +1223,9 @@ var hu={p:0,auto:true};
 
 /* ---------- GSAP scroll choreography ---------- */
 function initGSAP(){
-  if(!window.gsap||!window.ScrollTrigger||reduced){measure();onScroll();return;}
+  if(!window.gsap||!window.ScrollTrigger||reduced){bindScroll();measure();onScroll();return;}
   var g=window.gsap,ST=window.ScrollTrigger;g.registerPlugin(ST);
   doc.classList.add('js-anim');
-
-  ST.batch('.rv',{start:'top 90%',once:true,onEnter:function(els){g.to(els,{opacity:1,y:0,duration:1.1,ease:'power3.out',stagger:.08,overwrite:true});}});
-
-  g.to('#revealText .w',{opacity:1,stagger:.12,ease:'none',scrollTrigger:{trigger:'#about',start:'top 75%',end:'center 45%',scrub:.6}});
-
-  $$('[data-count]').forEach(function(el){var n=+el.getAttribute('data-count'),o={v:0};
-    ST.create({trigger:el,start:'top 90%',once:true,onEnter:function(){g.to(o,{v:n,duration:1.6,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString('en-US');}});}});});
-
-  g.to('#strike',{'--s':1,ease:'none',scrollTrigger:{trigger:'#strike',start:'top 85%',end:'top 50%',scrub:true}});
 
   var mm=g.matchMedia();
   mm.add('(min-width: 900px)',function(){
@@ -1111,10 +1239,60 @@ function initGSAP(){
     ST.create({trigger:'#huCanvas',start:'top 75%',end:'+=900',scrub:true,onUpdate:function(s){hu.p=s.progress;},onToggle:function(s){hu.auto=!s.isActive&&s.progress===0;}});
   });
 
+  $$('.rv').forEach(function(el){
+    var sib=el.parentElement?[].indexOf.call(el.parentElement.children,el):0;
+    ST.create({trigger:el,start:'top 92%',once:true,onEnter:function(){g.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',delay:Math.min(sib,6)*.07,overwrite:true});}});
+  });
+
+  g.to('#revealText .w',{opacity:1,stagger:.12,ease:'none',scrollTrigger:{trigger:'#about',start:'top 75%',end:'center 45%',scrub:.6}});
+
+  $$('[data-count]').forEach(function(el){var n=+el.getAttribute('data-count'),o={v:0};
+    ST.create({trigger:el,start:'top 90%',once:true,onEnter:function(){g.to(o,{v:n,duration:1.6,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString('en-US');}});}});});
+
+  g.to('#strike',{'--s':1,ease:'none',scrollTrigger:{trigger:'#strike',start:'top 85%',end:'top 50%',scrub:true}});
+
+  ST.create({start:0,end:'max',onUpdate:onScroll});
   ST.addEventListener('refresh',function(){measure();onScroll();});
   ST.refresh();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){ST.refresh();});
+  setTimeout(function(){ST.refresh();},1500);
 }
 if(document.readyState==='complete')initGSAP();else window.addEventListener('load',initGSAP);
+
+/* ---------- auto tour: scrolls at reading pace, pauses 10 s on any interaction ---------- */
+(function(){
+  var btn=$('#tourBtn'),lbl=$('#tourLabel');
+  var on=false,resumeAt=0,acc=0,last=0,started=false,PAUSE=10000;
+  var speed=function(){return innerWidth<760?60:85;};
+  function maxY(){return document.documentElement.scrollHeight-innerHeight;}
+  function setUI(){
+    var paused=on&&performance.now()<resumeAt;
+    btn.classList.toggle('on',on);btn.classList.toggle('paused',paused);
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    btn.setAttribute('aria-label',on?'Stop auto tour':'Start auto tour');
+    lbl.textContent=!on?(window.scrollY>=maxY()-4?'Replay tour':'Auto tour'):paused?'Resumes in '+Math.ceil((resumeAt-performance.now())/1000)+'s':'Touring';
+  }
+  function start(){if(window.scrollY>=maxY()-4)window.scrollTo(0,0);on=true;resumeAt=performance.now()+400;acc=0;setUI();}
+  function stop(){on=false;setUI();}
+  function interrupt(e){if(!on)return;if(e&&e.target&&e.target.closest&&e.target.closest('#tourBtn'))return;resumeAt=performance.now()+PAUSE;acc=0;setUI();}
+  ['wheel','touchstart','pointerdown','keydown'].forEach(function(ev){window.addEventListener(ev,interrupt,{passive:true});});
+  btn.addEventListener('click',function(){on?stop():start();});
+  function loop(now){
+    requestAnimationFrame(loop);
+    var dt=last?Math.min(100,now-last):16;last=now;
+    if(!on)return;
+    if(!sheet.hidden){resumeAt=Math.max(resumeAt,now+PAUSE);setUI();return;}
+    if(now<resumeAt){if(((now/250)|0)!==((now-dt)/250|0))setUI();return;}
+    if(btn.classList.contains('paused'))setUI();
+    acc+=speed()*dt/1000;
+    var step=Math.floor(acc);
+    if(step>=1){acc-=step;window.scrollBy(0,step);}
+    if(window.scrollY>=maxY()-2){stop();}
+  }
+  requestAnimationFrame(loop);
+  setUI();
+  if(!reduced&&!location.hash){setTimeout(function(){if(!started&&window.scrollY<40){started=true;start();resumeAt=performance.now()+2500;setUI();}},1200);}
+})();
 measure();onScroll();
 
 /* deep link to a project */
