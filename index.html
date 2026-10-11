@@ -1281,6 +1281,7 @@ if(document.readyState==='complete')initGSAP();else window.addEventListener('loa
     requestAnimationFrame(loop);
     var dt=last?Math.min(100,now-last):16;last=now;
     if(!on)return;
+    if(document.hidden){resumeAt=Math.max(resumeAt,now+1500);return;}
     if(!sheet.hidden){resumeAt=Math.max(resumeAt,now+PAUSE);setUI();return;}
     if(now<resumeAt){if(((now/250)|0)!==((now-dt)/250|0))setUI();return;}
     if(btn.classList.contains('paused'))setUI();
